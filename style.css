@@ -1,0 +1,906 @@
+:root {
+  --bg: #0f1418;
+  --fg: #e8e8e3;
+  --muted: #8a9296;
+  --accent: #5BC2E7;
+  --card-bg: #161c21;
+  --line: #2a3238;
+  --wide: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- icons ---------- */
+
+.sprite { display: none; }
+
+.icon {
+  width: 1.05em;
+  height: 1.05em;
+  fill: currentColor;
+  flex: none;
+  /* nudge onto the text baseline when sitting inline */
+  vertical-align: -0.15em;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- nav ---------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  background: rgba(15, 20, 24, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-brand {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 0.9rem;
+}
+
+.nav-links a { color: var(--muted); }
+.nav-links a:hover { color: var(--fg); text-decoration: none; }
+.nav-cv { color: var(--accent) !important; }
+
+/* ---------- hero ---------- */
+
+.hero { padding: 0 0 24px; }
+
+/* full-bleed banner: edge to edge, straight under the nav, no frame */
+.hero-media {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 40px;
+  /* fades into the page background so the crop has no hard bottom edge */
+  position: relative;
+}
+
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 90px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+/* height:auto shows the banner whole — the subject sits near the top of the
+   frame, so a fixed-height centre crop was cutting his face off. On short
+   viewports the max-height kicks in and the crop is anchored to the top. */
+.hero-media img {
+  width: 100%;
+  height: auto;
+  max-height: 61.2vh;   /* 72vh less 15%, matching the crop taken off the file */
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* the text keeps the page's normal measure even though the banner is full width.
+   Grid, not flex: the portrait spans the name/tagline/blurb rows while the link
+   row runs full width underneath it. */
+.hero-body {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 28px;
+}
+
+/* Spans the name/tagline/blurb rows and takes its height from them, so the
+   portrait always ends flush with the bottom of the bio however the blurb
+   wraps. `height: 100%` rather than `align-self: stretch` — stretch is
+   ignored on replaced elements like <img>. The row it spans also contains
+   the blurb's bottom margin, so that is subtracted to land on the text. */
+.hero-portrait {
+  grid-row: 1 / 4;
+  width: 132px;
+  height: calc(100% - 24px);   /* 24px = .hero-blurb margin-bottom */
+  min-height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.hero-body > h1,
+.hero-body > .hero-tagline,
+.hero-body > .hero-blurb { grid-column: 2; }
+
+.hero-body > .hero-links { grid-column: 1 / -1; }
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+
+.hero-tagline {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin: 0 0 20px;
+}
+
+.hero-blurb {
+  max-width: 60ch;
+  color: var(--fg);
+  margin: 0 0 24px;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+}
+
+.hero-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.9rem;
+}
+
+.hero-links a:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- sections ---------- */
+
+main { max-width: var(--wide); margin: 0 auto; padding: 0 24px; }
+
+/* scroll-margin keeps headings clear of the sticky nav on anchor jumps */
+section { margin: 72px 0; scroll-margin-top: 80px; }
+
+h2 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--fg);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin: 0 0 32px;
+}
+
+/* ---------- CV band: Education + Skills | Experience ---------- */
+
+.cv-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px;
+  align-items: start;
+}
+
+/* sections inside the band shouldn't inherit the 72px vertical rhythm */
+.cv-col section { margin: 0 0 48px; }
+.cv-col section:last-child { margin-bottom: 0; }
+
+/* half-width columns are too narrow for the date-in-a-gutter layout */
+.cv-col .entry {
+  grid-template-columns: 1fr;
+  gap: 3px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.cv-col .entry-when { padding-top: 0; }
+.cv-col .entry-what h3 { font-size: 1.22rem; line-height: 1.3; margin-bottom: 2px; }
+.cv-col .entry-what ul { margin-top: 7px; padding-left: 18px; }
+.cv-col .entry-what li { font-size: 0.93rem; }
+.cv-col .entry-what .tag { margin: 3px 0 0; }
+
+.cv-col .skills {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.cv-col .skills dd { margin-bottom: 12px; font-size: 0.95rem; }
+.cv-col .skills dd:last-child { margin-bottom: 0; }
+
+/* the lead skill is the one thing that sets this CV apart, so it gets the accent
+   and a rule of its own rather than being one row among six */
+.skills .lead {
+  color: var(--fg);
+}
+
+.skills dt.lead {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.cv-col .skills dd.lead {
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* the dissertation, sitting under its degree — an output, not another credential */
+.thesis {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 8px 0 0 !important;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 60ch;
+  margin: -12px 0 28px;
+}
+
+/* Where a heading is followed by an intro line, the rule belongs under the pair
+   rather than cutting between them. */
+h2:has(+ .section-intro) {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+}
+
+h2 + .section-intro {
+  margin-top: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- research: logo/photo cards, full width ---------- */
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.research-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.research-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.research-media {
+  display: block;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+/* Contained wordmark on a dark plate — logos rarely survive cropping, and
+   all three of these are light-on-dark artwork (the AEROSUB mark is blue and
+   white, the ATLANTIS banner carries its own navy background). */
+.research-media.logo {
+  display: grid;
+  place-items: center;
+  padding: 20px 24px;
+  min-height: 132px;
+}
+
+.research-media.logo img {
+  max-height: 84px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* full-bleed project photograph */
+.research-media.photo img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.research-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.research-body h3 { font-size: 1.15rem; margin: 0 0 6px; }
+.research-body h3 a { color: var(--fg); }
+.research-body h3 a:hover { color: var(--accent); text-decoration: none; }
+.research-body p { margin: 0 0 12px; font-size: 0.93rem; }
+
+/* the project's full expanded name, under the acronym */
+.project-full {
+  color: var(--fg);
+  font-size: 0.88rem !important;
+  font-style: italic;
+  opacity: 0.75;
+  margin-bottom: 10px !important;
+}
+
+/* push the link row to the bottom so cards of differing text length align */
+.research-body .stack { margin-top: auto !important; padding-top: 4px; }
+
+/* ---------- projects: alternating showcase rows ---------- */
+
+.showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.showcase:last-of-type { margin-bottom: 0; }
+
+/* flip every second row so the page zig-zags (nth-of-type: the <h2> is not an
+   <article>, so counting starts at the first project) */
+.showcase:nth-of-type(even) .showcase-media { grid-column: 2; grid-row: 1; }
+.showcase:nth-of-type(even) .showcase-body  { grid-column: 1; grid-row: 1; }
+
+.showcase-media {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.showcase-media img,
+.showcase-media video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+
+.showcase-body h3 {
+  font-size: 1.4rem;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.showcase-body p { margin: 0 0 14px; }
+
+/* repo / demo links under a project */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 12px 0 0 !important;
+  font-size: 0.9rem;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* 16:9 responsive video embed */
+.embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* galleries that draw their own frames don't want the outer card border */
+.showcase-media.plain {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  overflow: visible;
+}
+
+/* ---------- thumbnail-strip gallery ---------- */
+
+.thumbs-main {
+  position: relative;   /* positioning context for the prev/next arrows */
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+/* Prev/next overlays on the main frame. They sit above the image but are
+   inset from the edges so they never cover the video controls, and they
+   stay dim until the frame is hovered or one of them is focused. */
+.thumbs-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--card-bg) 82%, transparent);
+  color: var(--fg);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .18s ease, background .18s ease;
+}
+
+.thumbs-nav-prev { left: 10px; }
+.thumbs-nav-next { right: 10px; }
+
+/* revealed on hover over the frame, and whenever an arrow takes focus so
+   keyboard users can see what they are on */
+.thumbs-main:hover .thumbs-nav,
+.thumbs-nav:focus-visible {
+  opacity: 1;
+}
+
+.thumbs-nav:hover {
+  background: var(--card-bg);
+}
+
+/* chevron drawn from a rotated square, so there is no icon font or SVG */
+.thumbs-nav::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.thumbs-nav-prev::before {
+  transform: rotate(-135deg);
+  margin-left: 3px;
+}
+
+.thumbs-nav-next::before {
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+/* touch devices have no hover to reveal them, so keep the arrows visible */
+@media (hover: none) {
+  .thumbs-nav { opacity: 1; }
+}
+
+/* `contain`, not `cover`: these strips mix landscape plots with portrait
+   photos and clips, and cropping portraits to a landscape box beheads
+   people. The letterboxing shows the card background, not black bars. */
+.thumbs-main img,
+.thumbs-main video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  display: block;
+}
+
+/* an embedded player fills the same frame, but object-fit means nothing to an
+   iframe — it just takes the box */
+.thumbs-main iframe {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  display: block;
+}
+
+.thumbs-caption {
+  color: var(--muted);
+  margin: 12px 0 0;
+  font-size: 0.93rem;
+}
+
+.thumbs-caption strong {
+  color: var(--fg);
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+/* a clip has no still to show in the strip, so its button is just a tile
+   carrying the play badge */
+.thumbs-strip button:not(:has(img)) {
+  aspect-ratio: 4 / 3;
+  background: var(--bg);
+}
+
+/* Thumbnails keep one fixed size — the width they'd have at four across —
+   instead of shrinking as the strip grows. Past four the strip scrolls, and
+   the script keeps the selected thumbnail in view. */
+.thumbs-strip {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  overflow-x: auto;
+  /* no `scroll-behavior: smooth` here — in Chrome it makes programmatic
+     scrollLeft/scrollTo silently no-op. The script asks for smooth instead. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.thumbs-strip::-webkit-scrollbar { height: 6px; }
+.thumbs-strip::-webkit-scrollbar-track { background: transparent; }
+.thumbs-strip::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+}
+
+.thumbs-strip button {
+  flex: 0 0 calc((100% - 3 * 10px) / 4);
+  position: relative;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-bg);
+  cursor: pointer;
+  opacity: 0.55;
+  transition: border-color 0.2s, opacity 0.2s;
+}
+
+/* play badge marking a thumbnail that opens a clip rather than a still */
+.thumb-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(15, 20, 24, 0.72);
+  border: 1px solid rgba(232, 232, 227, 0.5);
+}
+
+.thumb-play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 9px;
+  border-color: transparent transparent transparent var(--fg);
+  transform: translateX(1px);
+}
+
+.thumbs-strip button:hover { opacity: 1; }
+
+.thumbs-strip button.is-active {
+  border-color: var(--accent);
+  opacity: 1;
+}
+
+.thumbs-strip img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* ---------- experience / education entries ---------- */
+
+.entry {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 24px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-of-type { border-bottom: none; }
+
+.entry-when {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding-top: 4px;
+}
+
+.entry-what h3 { font-size: 1.1rem; margin: 0 0 6px; }
+.entry-what ul { margin: 10px 0 0; padding-left: 20px; }
+.entry-what li { margin-bottom: 4px; }
+
+/* ---------- skills ---------- */
+
+.skills {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 12px 24px;
+  margin: 0;
+}
+
+.skills dt { color: var(--muted); font-size: 0.85rem; }
+.skills dd { margin: 0; }
+
+/* ---------- shared bits ---------- */
+
+.tag {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0 0 8px;
+}
+
+.stack {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin: 0 !important;
+}
+
+footer {
+  max-width: var(--wide);
+  margin: 80px auto 0;
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+footer p { margin: 4px 0; }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin-bottom: 10px !important;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ---------- captioned slideshow ---------- */
+
+/* lives inside a half-width CV column, so it just fills its column */
+.slideshow { margin: 16px 0 0; }
+
+/* Slides are stacked with grid rather than absolute positioning, so the
+   stage keeps the height of the photos without needing a fixed one. */
+.slide-stage {
+  position: relative;
+  display: grid;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.slide {
+  grid-area: 1 / 1;
+  width: 100%;
+  /* height:auto is required — the width/height attributes on the img are
+     presentation hints that would otherwise beat aspect-ratio and render
+     each slide at its full 1067px intrinsic height */
+  height: auto;
+  aspect-ratio: 3 / 2;   /* every photo in this set is 3:2, so nothing crops */
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease;
+}
+
+.slide.is-current {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* a portrait clip in a landscape stage has to be contained — cover would crop
+   a 9:16 frame down to a sliver of its middle */
+video.slide {
+  object-fit: contain;
+  background: var(--bg);
+}
+
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(15, 20, 24, 0.72);
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.slide-nav:hover,
+.slide-nav:focus-visible {
+  opacity: 1;
+  border-color: var(--accent);
+}
+
+.slide-nav.prev { left: 12px; }
+.slide-nav.next { right: 12px; }
+
+/* chevrons drawn from a rotated corner, so no icon asset is needed */
+.slide-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 9px;
+  height: 9px;
+  border: solid var(--fg);
+  border-width: 2px 2px 0 0;
+}
+
+.slide-nav.prev::after  { transform: translateX(2px) rotate(-135deg); }
+.slide-nav.next::after  { transform: translateX(-2px) rotate(45deg); }
+
+.slide-count {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  margin: 0;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(15, 20, 24, 0.72);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* captions stack the same way, so the block is as tall as the longest one
+   and the layout never jumps between slides */
+.slide-captions {
+  display: grid;
+  margin-top: 14px;
+}
+
+.slide-cap {
+  grid-area: 1 / 1;
+  margin: 0;
+  color: var(--muted);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease;
+}
+
+.slide-cap.is-current {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-cap strong {
+  color: var(--fg);
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.slide-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.slide-dots button:hover { border-color: var(--fg); }
+
+.slide-dots button.is-current {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* A slideshow inside a project row has to out-specify `.showcase-media img`,
+   which would otherwise force 16:9 cover onto every frame. */
+.showcase-media .slideshow .slide {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+/* .fit: a square stage, contained rather than cropped — for a set whose frames
+   run from a 16:9 clip to a near-square portrait and share no common crop */
+.slideshow.fit .slide,
+.showcase-media .slideshow.fit .slide {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slide-cap { transition: none; }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .cv-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .cv-col section,
+  .cv-col section:last-child { margin-bottom: 48px; }
+
+  .entry,
+  .skills {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* stack showcase rows, media always first — the zig-zag has no meaning
+     in a single column */
+  .showcase {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+  .showcase:nth-of-type(even) .showcase-media { grid-column: 1; grid-row: 1; }
+  .showcase:nth-of-type(even) .showcase-body  { grid-column: 1; grid-row: 2; }
+
+  section { margin: 56px 0; }
+
+  /* portrait above the name rather than beside it */
+  .hero-body { grid-template-columns: 1fr; row-gap: 0; }
+  .hero-body > h1,
+  .hero-body > .hero-tagline,
+  .hero-body > .hero-blurb { grid-column: 1; }
+  /* stacked above the text here, so it has no row span to take height from */
+  .hero-portrait {
+    grid-row: auto;
+    width: 104px;
+    height: 118px;
+    min-height: 0;
+    margin-bottom: 14px;
+  }
+
+  /* arrows shrink and tuck in so they don't cover half a face on a phone */
+  .slide-nav {
+    width: 34px;
+    height: 34px;
+    opacity: 0.8;
+  }
+  .slide-nav.prev { left: 8px; }
+  .slide-nav.next { right: 8px; }
+}

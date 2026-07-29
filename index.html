@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francisco Pires da Silva — Robotics Engineer</title>
+<meta name="description" content="Robotics engineer and researcher at INESC TEC / University of Porto, working on autonomous navigation, obstacle avoidance and marine robotics.">
+
+<!-- Social preview -->
+<meta property="og:title" content="Francisco Pires da Silva — Robotics Engineer">
+<meta property="og:description" content="Autonomous navigation, obstacle avoidance and marine robotics. Researcher at INESC TEC / University of Porto.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xizesse.github.io">
+<meta property="og:image" content="https://xizesse.github.io/assets/hero-neeeil.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ?v=N busts browser caches: bump the number whenever style.css changes,
+     otherwise returning visitors keep rendering the page with an old stylesheet -->
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+<!-- ============================================================
+     ICON SPRITE — referenced with <svg class="icon"><use href="#i-…">.
+     Inline so there are no extra requests, and the paths use
+     fill="currentColor" so icons take the colour of their link.
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-mail" viewBox="0 0 24 24">
+    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.2-8 5-8-5V6l8 5 8-5v2.2Z"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 24 24">
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+  </symbol>
+  <symbol id="i-file" viewBox="0 0 24 24">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-7-7Zm0 2.5L17.5 9H13V4.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z"/>
+  </symbol>
+</svg>
+
+<nav class="nav">
+  <a class="nav-brand" href="#top">Francisco Pires da Silva</a>
+  <div class="nav-links">
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a class="nav-cv" href="assets/Francisco_Pires_da_Silva_CV.pdf">CV</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO — full-bleed banner across the top, text below it.
+     ============================================================ -->
+<header class="hero" id="top">
+  <div class="hero-media">
+    <img src="assets/hero-neeeil.jpg" width="2000" height="771"
+         alt="Tangled ribbon cables and a robotic arm on a workbench at a robotics competition">
+  </div>
+  <div class="hero-body">
+    <!-- portrait-web.jpg is a 3x-for-retina crop of the full-size portrait.jpg;
+         regenerate it if the original is ever replaced -->
+    <img class="hero-portrait" src="assets/portrait-web.jpg" width="396" height="645"
+         alt="Portrait of Francisco Pires da Silva">
+    <h1>Francisco Pires da Silva</h1>
+    <p class="hero-tagline">Robotics Engineer — Mobile &amp; Marine Robotics</p>
+    <p class="hero-blurb">
+      Robotics engineer drawn to field mobile robotics, working across the full autonomy
+      stack: from decision making and behavioural planning down to low-level control — to
+      take autonomous vehicles from research into real-world solutions.
+    </p>
+    <p class="hero-links">
+      <a href="mailto:kikopiressilva@gmail.com">
+        <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>Email
+      </a>
+      <a href="https://github.com/Xizesse">
+        <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>GitHub
+      </a>
+      <a href="https://linkedin.com/in/franciscopiressilva/">
+        <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn
+      </a>
+      <a href="assets/Francisco_Pires_da_Silva_CV.pdf">
+        <svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg>Résumé (PDF)
+      </a>
+    </p>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     CV BAND — Education on the left, Experience + Skills on the right.
+     Research and Projects run full width underneath.
+     ============================================================ -->
+<div class="cv-layout">
+
+<div class="cv-col">
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <article class="entry">
+      <div class="entry-when">Sept 2025 — August 2026</div>
+      <div class="entry-what">
+        <h3>PhD Coursework, Electrical and Computer Engineering</h3>
+        <p class="tag">FEUP, University of Porto, Portugal · Curricular year completed</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="entry-when">Oct 2024 — Mar 2025</div>
+      <div class="entry-what">
+        <h3>Exchange Semester, Electrical and Computer Engineering</h3>
+        <p class="tag">Technical University of Munich, Germany</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="entry-when">Sept 2023 — 2025</div>
+      <div class="entry-what">
+        <h3>MSc in Electrical and Computer Engineering</h3>
+        <p class="tag">University of Porto, Portugal · GPA 18/20</p>
+        <p class="thesis">
+          Dissertation ·
+          <a href="https://hdl.handle.net/10216/168921">A Velocity Obstacle Avoidance
+          Algorithm for Heterogeneous Robotic Vehicles</a> · graded 19/20
+        </p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="entry-when">Sept 2020 — Jul 2023</div>
+      <div class="entry-what">
+        <h3>BSc in Electrical and Computer Engineering</h3>
+        <p class="tag">University of Porto, Portugal · GPA 18/20</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="entry-when">July 2026</div>
+      <div class="entry-what">
+        <h3>MIT Portugal Marine Robotics Summer School</h3>
+        <p class="tag">Faial, Azores, Portugal · 24 students from MIT and Portuguese universities</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <article class="entry">
+      <div class="entry-when">Jan 2023 — Present</div>
+      <div class="entry-what">
+        <h3>Research Assistant — INESC TEC, Center for Robotics and Autonomous Systems</h3>
+        <ul>
+          <li>Conceptualised and developed a prototype UAV docking and retention system</li>
+          <li>Dynamic obstacle avoidance for heterogeneous robotic vehicles</li>
+          <li>LiDAR-based obstacle detection and tracking</li>
+          <li>Collaborative UAV–ASV mission coordination</li>
+          <li>Autonomous ASV navigation — motion planning, decision making and control system design</li>
+          <li>30+ days of real-world field testing, deployments and demonstrations on the water</li>
+        </ul>
+
+        <div class="thumbs" data-thumbs>
+          <div class="thumbs-main">
+            <video src="assets/1_reaching_site.mp4" poster="assets/1_reaching_site-poster.jpg"
+                   autoplay muted loop controls playsinline preload="metadata"
+                   aria-label="Clip of the autonomous surface vehicle navigating out to the inspection site"></video>
+          </div>
+          <p class="thumbs-caption" data-thumbs-caption><strong>Autonomous ASV navigation</strong>Developed and validated the full navigation stack.</p>
+          <div class="thumbs-strip">
+            <button type="button" class="is-active"
+                    data-type="video" data-src="assets/1_reaching_site.mp4"
+                    data-poster="assets/1_reaching_site-poster.jpg"
+                    data-label="Autonomous ASV navigation" data-caption="Developed and validated the full navigation stack."
+                    aria-label="Clip of the autonomous surface vehicle navigating out to the inspection site">
+              <img src="assets/1_reaching_site-poster.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="video" data-src="assets/3_inspection.mp4"
+                    data-poster="assets/3_inspection-poster.jpg"
+                    data-label="Inspection" data-caption="Behaviour layer for UAV coordination."
+                    aria-label="Clip of the vehicle carrying out an inspection mission on station">
+              <img src="assets/3_inspection-poster.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="video" data-src="assets/0_leaving_shore.mp4"
+                    data-poster="assets/0_leaving_shore-poster.jpg"
+                    data-label="Leaving shore" data-caption="Autonomous navigation from shore to site, making UAV inspection on sites far from shore possible."
+                    aria-label="Clip of the autonomous surface vehicle leaving the shore at the start of a mission">
+              <img src="assets/0_leaving_shore-poster.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="image" data-src="assets/lily-water.jpg"
+                    data-label="Real vehicles" data-caption="Hands-on experience developing and deploying real vehicles."
+                    aria-label="LILY, an autonomous surface vehicle, under way on open water">
+              <img src="assets/lily-water.jpg" alt="" loading="lazy">
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+
+</div>
+
+<div class="cv-col">
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <!-- lead row: the differentiator goes first and is styled to be read first -->
+      <dt class="lead">Field Robotics</dt>
+      <dd class="lead">
+        30+ days of on-water testing · ASV and UAV deployments · sea trials and live
+        demonstrations · debugging hardware where you can't reach a bench
+      </dd>
+      <dt>Areas</dt>
+      <dd>Mobile robotics · marine robotics · motion planning · decision making · obstacle detection and tracking · control system design</dd>
+      <dt>Tools</dt>
+      <dd>ROS · ROS 2 · Nav2 · Gazebo · ArduPilot · ArduSub · LiDAR · Codesys · MATLAB · Onshape · Linux · Git · LaTeX</dd>
+      <dt>Languages</dt>
+      <dd>C++ · C · Python · Java</dd>
+      <dt>Spoken</dt>
+      <dd>Portuguese (native) · English (fluent) · German (beginner)</dd>
+    </dl>
+  </section>
+
+  <section id="outreach">
+    <h2>Leadership &amp; Outreach</h2>
+
+    <article class="entry">
+      <div class="entry-when">Sept 2020 — Aug 2025</div>
+      <div class="entry-what">
+        <h3>NEEEC-FEUP (Electrical and Computer Engineering Students' Branch)</h3>
+        <ul>
+          <li>Board Member, 2023/2024</li>
+          <li>Head of the technology department, leading a team of 20 running projects and sharing what we learned with the wider student body at FEUP</li>
+          <li>Logistics coordinator for NEEEIL-IT, a robotics competition</li>
+          <li>Organised and presented hands-on technical workshops for students — ROS 2, electronics, Arduino and Notion</li>
+          <li>Member of EESTEC, the European Association of Students of Electrical Engineering</li>
+          <li>High-school outreach presentations introducing electrical engineering, with hands-on Arduino exercises</li>
+        </ul>
+
+        <!-- Captioned slideshow. Slides and captions are separate stacks so the
+             arrows can sit over the photo; both are switched by the same index.
+             Slide 1 carries is-current in the HTML, so without JS the widget
+             still shows a photo and its caption. -->
+        <div class="thumbs" data-thumbs>
+          <div class="thumbs-main">
+            <img src="assets/outreach-10.jpg" alt="A presenter addressing the class beside the Arduino slide">
+          </div>
+          <p class="thumbs-caption" data-thumbs-caption><strong>High-School Outreach</strong>Showed electrical engineering to high-schoolers, with hands-on Arduino exercises.</p>
+          <div class="thumbs-strip">
+            <button type="button" class="is-active"
+                    data-type="image" data-src="assets/outreach-10.jpg"
+                    data-label="High-School Outreach" data-caption="Showed electrical engineering to high-schoolers, with hands-on Arduino exercises."
+                    aria-label="A presenter addressing the class beside the Arduino slide">
+              <img src="assets/outreach-10.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="image" data-src="assets/neeeil-room.jpg"
+                    data-label="NEEEIL-IT" data-caption="Logistics coordinator for the 24-hour robotics competition."
+                    aria-label="A robotic arm in the foreground of the competition room">
+              <img src="assets/neeeil-room.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="image" data-src="assets/neeeil-banner.jpg"
+                    data-label="NEEEIL-IT" data-caption="Logistics coordinator for the 24-hour robotics competition."
+                    aria-label="Two staff members on chairs hanging the NEEEIL-IT banner">
+              <img src="assets/neeeil-banner.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="image" data-src="assets/workshop-arduino.jpg"
+                    data-label="Workshops" data-caption="Presented and organised workshops for fellow students — Arduino, electronics, ROS and Notion."
+                    aria-label="Running an Arduino workshop for a full lecture hall">
+              <img src="assets/workshop-arduino.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="image" data-src="assets/outreach-04.jpg"
+                    data-label="High-School Outreach" data-caption="Showed electrical engineering to high-schoolers, with hands-on Arduino exercises."
+                    aria-label="The presenting team answering questions beside the breadboard slide">
+              <img src="assets/outreach-04.jpg" alt="" loading="lazy">
+            </button>
+            <button type="button"
+                    data-type="video" data-src="assets/robotic_arm_neeec.mp4"
+                    data-poster="assets/robotic_arm_neeec-poster.jpg"
+                    data-label="Head of Technological Department" data-caption="Leading the department's team of 20 and the projects it builds."
+                    aria-label="A robotic arm built by the technology department moving through its range">
+              <img src="assets/robotic_arm_neeec-poster.jpg" alt="" loading="lazy">
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+</div>
+
+</div><!-- /.cv-layout -->
+
+<!-- ============================================================
+     RESEARCH — full width, three cards across
+     ============================================================ -->
+<section id="research">
+  <h2>Research</h2>
+
+  <p class="section-intro">
+    EU-funded projects I contributed to at INESC TEC — Center for Robotics and
+    Autonomous Systems.
+  </p>
+
+  <div class="research-grid">
+
+    <!-- Swap `logo` for `photo` on .research-media to switch a card from a
+         padded, contained logo to a full-bleed cropped photograph. -->
+    <article class="research-card">
+      <a class="research-media logo" href="https://aerosub.eu/about/">
+        <img src="assets/aerosub-logo.svg" alt="AEROSUB project logo">
+      </a>
+      <div class="research-body">
+        <p class="tag">Horizon Europe · 2024 — Present</p>
+        <h3><a href="https://aerosub.eu/about/">AEROSUB</a></h3>
+        <p class="project-full">Automated Inspection Robots for Surface, Aerial and Underwater Substructures</p>
+        <p>
+          An INESC TEC-led effort to build the first fully unmanned robotic solution
+          for aerial and underwater inspection of offshore wind farms, combining AI,
+          digital twins and multi-robot collaboration.
+        </p>
+        <p class="stack">
+          <a href="https://aerosub.eu/about/">Project site</a> ·
+          <a href="https://cordis.europa.eu/project/id/101189723">CORDIS</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="research-card">
+      <a class="research-media logo" href="https://talosproject.eu/">
+        <img src="assets/talos.png" alt="TALOS project logo">
+      </a>
+      <div class="research-body">
+        <p class="tag">Horizon Europe · 2023 — Present</p>
+        <h3><a href="https://talosproject.eu/">TALOS</a></h3>
+        <p class="project-full">Robotics and AI living labs for photovoltaic inspection and maintenance</p>
+        <p>
+          Robotics and AI for solar photovoltaics and agriculture, centred on
+          human–robot collaboration for inspection and maintenance.
+        </p>
+        <p class="stack">
+          <a href="https://talosproject.eu/">Project site</a> ·
+          <a href="https://cordis.europa.eu/project/id/101119744">CORDIS</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="research-card">
+      <a class="research-media logo" href="https://www.atlantis-h2020.eu/">
+        <img src="assets/atlantis.png" alt="ATLANTIS project logo">
+      </a>
+      <div class="research-body">
+        <p class="tag">Horizon 2020 · 2020 — 2024</p>
+        <h3><a href="https://www.atlantis-h2020.eu/">ATLANTIS</a></h3>
+        <p class="project-full">The Atlantic Testing Platform for Maritime Robotics</p>
+        <p>
+          A pilot test infrastructure in the Atlantic off Viana do Castelo, Portugal,
+          for robotic inspection and maintenance of offshore wind farms — cutting the
+          need for the support vessels that drive up the cost of energy.
+        </p>
+        <p class="stack">
+          <a href="https://www.atlantis-h2020.eu/">Project site</a> ·
+          <a href="https://cordis.europa.eu/project/id/871571">CORDIS</a>
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PROJECTS — full width, alternating rows
+     ============================================================ -->
+<section id="projects">
+  <h2>Personal &amp; University Projects</h2>
+
+  <p class="section-intro">
+    Roughly in order of how much I liked working on them.
+  </p>
+
+  <!-- Alternating rows: media left on odd rows, right on even.
+       .showcase-media takes an <img>, a 16:9 .embed wrapper, or a .thumbs
+       gallery (main image + clickable thumbnail strip). -->
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <video src="assets/JAVOA_static.mp4" poster="assets/JAVOA_static-poster.jpg"
+                 autoplay muted loop controls playsinline preload="metadata"
+                 aria-label="Aerial footage of the surface vehicle avoiding a static obstacle during an on-water trial"></video>
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption><strong>Static obstacle</strong>Steering around a fixed obstacle during an on-water trial, filmed from the air.</p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="video" data-src="assets/JAVOA_static.mp4"
+                  data-poster="assets/JAVOA_static-poster.jpg"
+                  data-label="Static obstacle" data-caption="Steering around a fixed obstacle during an on-water trial, filmed from the air."
+                  aria-label="Aerial footage of the surface vehicle avoiding a static obstacle during an on-water trial">
+            <img src="assets/JAVOA_static-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/JAVOA_2dHolonom.mp4"
+                  data-poster="assets/JAVOA_2dHolonom-poster.jpg"
+                  data-label="Holonomic 2D case" data-caption="The velocity-obstacle algorithm resolving a moving obstacle in simulation."
+                  aria-label="Simulation clip of the velocity-obstacle algorithm avoiding a moving obstacle in the holonomic 2D case">
+            <img src="assets/JAVOA_2dHolonom-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/JAVOA_DiffDrive.mp4"
+                  data-poster="assets/JAVOA_DiffDrive-poster.jpg"
+                  data-label="Differential drive" data-caption="The same algorithm under differential-drive constraints, where the vehicle cannot move sideways."
+                  aria-label="Simulation clip of the avoidance algorithm running on a differential-drive vehicle">
+            <img src="assets/JAVOA_DiffDrive-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/JAVOA_multirotor.mp4"
+                  data-poster="assets/JAVOA_multirotor-poster.jpg"
+                  data-label="Multirotor" data-caption="Carried across to an aerial vehicle — the heterogeneous case the algorithm was built for."
+                  aria-label="Simulation clip of the avoidance algorithm running on a multirotor aerial vehicle">
+            <img src="assets/JAVOA_multirotor-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/JAVOA_giveway_overtake.mp4"
+                  data-poster="assets/JAVOA_giveway_overtake-poster.jpg"
+                  data-label="Give way &amp; overtake" data-caption="Two encounter types resolved side by side — overtaking a slower vessel, and giving way to a crossing one."
+                  aria-label="Side-by-side overhead clips of the vehicle overtaking one vessel and giving way to another, with the planned paths drawn">
+            <img src="assets/JAVOA_giveway_overtake-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/thesis-scenario-3.jpg"
+                  data-label="Real-world scenario" data-caption="A closer pass, with the detour opening up to starboard."
+                  aria-label="Dissertation figure: a real-world scenario, the vehicle's environment representation beside the reference photograph">
+            <img src="assets/thesis-scenario-3.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">MSc Dissertation · FEUP · 2025 · graded 19/20</p>
+      <h3>A Velocity Obstacle Avoidance Algorithm for Heterogeneous Robotic Vehicles</h3>
+      <p>
+        A velocity-obstacle approach to avoiding moving obstacles with vehicles that
+        do not share the same dynamics — surface and aerial. Built in simulation,
+        then taken out for on-water trials in real environments.
+      </p>
+      <p class="stack">Velocity obstacles · Motion planning · Obstacle detection and tracking · Field validation</p>
+      <p class="project-links">
+        <a href="https://hdl.handle.net/10216/168921">
+          <svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg>Read the dissertation
+        </a>
+      </p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <!-- .fit on the slideshow: these frames run from a 2.4:1 group shot to a
+         near-square close-up, so they are contained rather than cropped -->
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <img src="assets/rov-brush.jpg" alt="The ROV with its brush tool mounted on a carbon boom">
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption><strong>The ROV</strong>Equipped with cameras and a brush for sampling and cleaning.</p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="image" data-src="assets/rov-brush.jpg"
+                  data-label="The ROV" data-caption="Equipped with cameras and a brush for sampling and cleaning."
+                  aria-label="The ROV with its brush tool mounted on a carbon boom">
+            <img src="assets/rov-brush.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/brushing-wall.gif"
+                  data-label="In the water" data-caption="Real-time invasive species detection for assisted biofouling cleaning."
+                  aria-label="Underwater footage of the brush running along a submerged wall">
+            <img src="assets/brushing-wall.gif" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/rov-dock.jpg"
+                  data-label="Dockside" data-caption="Tested in the harbour of Faial."
+                  aria-label="The ROV on the dockside, brush boom out over the water, before a dive">
+            <img src="assets/rov-dock.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">MIT Portugal Marine Robotics Summer School · 2026</p>
+      <h3>ROV for Autonomous Detection of Invasive Biofouling</h3>
+      <p>
+        An ROV-based approach to spotting invasive biofouling species on submerged
+        structures, built during the summer school in the Azores with a team of
+        biologists, oceanographers, navy personnel and engineers.
+      </p>
+      <p class="stack">ROV · Marine robotics · Underwater inspection</p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <video src="assets/Spider_obstacle_countour.mp4" poster="assets/Spider_obstacle_countour-poster.jpg"
+                 autoplay muted loop controls playsinline preload="metadata"
+                 aria-label="The quadruped following the contour of an obstacle it has detected"></video>
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption><strong>Contour following</strong>Detecting an obstacle with the time-of-flight sensor and going around it.</p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="video" data-src="assets/Spider_obstacle_countour.mp4"
+                  data-poster="assets/Spider_obstacle_countour-poster.jpg"
+                  data-label="Contour following" data-caption="Detecting an obstacle with the time-of-flight sensor and going around it."
+                  aria-label="The quadruped following the contour of an obstacle it has detected">
+            <img src="assets/Spider_obstacle_countour-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/spider_fast_movements.mp4"
+                  data-poster="assets/spider_fast_movements-poster.jpg"
+                  data-label="Fast gait" data-caption="Walking movements and simple obstacle avoidance."
+                  aria-label="The quadruped walking quickly, showing the gait at speed">
+            <img src="assets/spider_fast_movements-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="embed" data-src="https://www.youtube-nocookie.com/embed/dOHlM_HInb0"
+                  data-label="Full video on YouTube" data-caption=""
+                  aria-label="Robot Spider walking demonstration">
+            <img src="assets/spider.png" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">FEUP · 2023 · Embedded Computing Architectures</p>
+      <h3>Robot Spider</h3>
+      <p>
+        Quadruped walking robot on a Raspberry Pi Pico, using an IMU and a
+        time-of-flight sensor for obstacle detection and contour following.
+      </p>
+      <p class="stack">Mobile robotics · Motion planning · Raspberry Pi Pico · C · IMU · ToF</p>
+    </div>
+  </article>
+
+  <!-- thumbnail strip: click a thumbnail to swap the main image -->
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <img src="assets/methane-munich.png"
+               alt="Heatmap of methane concentrations over central Munich">
+        </div>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="image" data-src="assets/methane-munich.png"
+                  aria-label="Heatmap of methane concentrations over central Munich">
+            <img src="assets/methane-munich.png" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/methane-survey-stall.jpeg"
+                  aria-label="Taking a live methane reading beside a Bratwurst stall, sensor trace on the phone screen">
+            <img src="assets/methane-survey-stall.jpeg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/methane-survey-team.jpeg"
+                  aria-label="The survey team with the backpack-mounted gas analyser before heading out">
+            <img src="assets/methane-survey-team.jpeg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">TUM · 2024 · Environmental Sensing and Monitoring</p>
+      <h3>Christmas Market Methane Study</h3>
+      <p>
+        Mobile methane emission survey of the Munich Christmas Markets with TUM's
+        Chair of Environmental Sensing and Modeling, mapping concentration against
+        measurement track.
+      </p>
+      <p class="stack">Environmental sensing · Python</p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <!-- thumbnail strip mixing a clip and a still; the video is the default,
+         and is rebuilt by the script when its thumbnail is re-selected -->
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <video src="assets/SelfBalancingMostra.mp4"
+                 poster="assets/ball-balancer.png"
+                 autoplay muted loop playsinline controls preload="metadata"
+                 aria-label="The ball-balancing beam holding a ball steady during a demo at Mostra U.Porto"></video>
+        </div>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="video"
+                  data-src="assets/SelfBalancingMostra.mp4"
+                  data-poster="assets/ball-balancer.png"
+                  aria-label="The ball-balancing beam holding a ball steady during a demo at Mostra U.Porto">
+            <img src="assets/ball-balancer.png" alt="" loading="lazy">
+            <span class="thumb-play" aria-hidden="true"></span>
+          </button>
+          <button type="button"
+                  data-type="image"
+                  data-src="assets/ball-balancer-rig.jpg"
+                  aria-label="The wooden beam rig balancing a blue ball, servo and sensor wired up on the bench">
+            <img src="assets/ball-balancer-rig.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">FEUP · 2023 · Mostra U.Porto</p>
+      <h3>PID Ball Balancing Robot</h3>
+      <p>
+        A beam that keeps a ball balanced using a servo and a ToF distance sensor.
+        Built as a hands-on control-theory demo for Mostra U.Porto — the University
+        of Porto's open-doors fair, where secondary-school students and the public
+        meet the university's courses and research.
+      </p>
+      <p class="stack">PID control · Arduino · Outreach</p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <img src="assets/howdy_first.jpeg"
+               alt="Two soldiers side by side in a torchlit dungeon room at the start of a run">
+        </div>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="image" data-src="assets/howdy_first.jpeg"
+                  aria-label="Two soldiers side by side in a torchlit dungeon room at the start of a run">
+            <img src="assets/howdy_first.jpeg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/howdy.png"
+                  aria-label="Screenshot of the H.O.W.D.Y. dungeon game">
+            <img src="assets/howdy.png" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/howdy1.jpeg"
+                  aria-label="A player facing a spider in a dark chamber, health hearts along the bottom of the screen">
+            <img src="assets/howdy1.jpeg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/howdy_last.jpeg"
+                  aria-label="The four-person team presenting H.O.W.D.Y. at FEUP, project title on the whiteboard behind them">
+            <img src="assets/howdy_last.jpeg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">FEUP · 2023 · Software Design</p>
+      <h3>H.O.W.D.Y.</h3>
+      <p>
+        Online multiplayer indie game in Java where two soldiers must cooperate to
+        solve puzzles and escape a dark dungeon.
+      </p>
+      <p class="stack">Java · Client–server networking · Multiplayer · Game design</p>
+      <p class="project-links">
+        <a href="https://github.com/Xizesse/HOWDY">
+          <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>Source on GitHub
+        </a>
+      </p>
+    </div>
+  </article>
+
+</section>
+
+
+</main>
+
+<footer>
+  <p class="footer-links">
+    <a href="mailto:kikopiressilva@gmail.com">
+      <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>kikopiressilva@gmail.com
+    </a>
+    <a href="https://github.com/Xizesse">
+      <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>GitHub
+    </a>
+    <a href="https://linkedin.com/in/franciscopiressilva/">
+      <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>LinkedIn
+    </a>
+  </p>
+  <p>Porto, Portugal</p>
+</footer>
+
+<script>
+// Thumbnail strip: clicking a thumbnail swaps what the main slot shows.
+// The slot is rebuilt rather than having its src reassigned, so a strip can
+// mix images and video. The default item is already in the HTML, so the
+// widget still shows something if this script never runs.
+document.querySelectorAll('[data-thumbs]').forEach(function (widget) {
+  var main    = widget.querySelector('.thumbs-main');
+  var caption = widget.querySelector('[data-thumbs-caption]');
+  var buttons = Array.prototype.slice.call(widget.querySelectorAll('.thumbs-strip button'));
+
+  // Prev/next overlays, built here rather than written into every gallery in
+  // the markup — they are pure controls, so nothing is lost without JS.
+  function arrow(dir, label) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'thumbs-nav thumbs-nav-' + dir;
+    b.setAttribute('aria-label', label);
+    return b;
+  }
+
+  var prev   = arrow('prev', 'Previous image');
+  var next   = arrow('next', 'Next image');
+  var hasNav = buttons.length > 1;   // one thumbnail has nowhere to step to
+
+  function build(btn) {
+    var label = btn.getAttribute('aria-label') || '';
+    var el;
+
+    if (btn.dataset.type === 'embed') {
+      // built only when the thumbnail is clicked, so YouTube is never
+      // contacted for visitors who don't ask for the clip
+      el = document.createElement('iframe');
+      el.src = btn.dataset.src;
+      el.title = label;
+      el.allowFullscreen = true;
+      el.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      el.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    } else if (btn.dataset.type === 'video') {
+      el = document.createElement('video');
+      el.src = btn.dataset.src;
+      if (btn.dataset.poster) el.poster = btn.dataset.poster;
+      el.autoplay = true;
+      el.muted = true;      // required: browsers block autoplay with sound
+      el.loop = true;
+      el.controls = true;
+      el.playsInline = true;
+      el.preload = 'metadata';
+      el.setAttribute('aria-label', label);
+    } else {
+      el = document.createElement('img');
+      el.src = btn.dataset.src;
+      el.alt = label;
+    }
+
+    // the arrows live inside the frame, so they are put back alongside each
+    // new image rather than being wiped by the swap
+    if (hasNav) main.replaceChildren(el, prev, next);
+    else        main.replaceChildren(el);
+
+    // strips that carry a caption block get it rewritten alongside the image
+    if (caption) {
+      var strong = document.createElement('strong');
+      strong.textContent = btn.dataset.label || '';
+      caption.replaceChildren(strong, document.createTextNode(btn.dataset.caption || ''));
+    }
+  }
+
+  var strip = widget.querySelector('.thumbs-strip');
+
+  // with more than four thumbnails the strip scrolls, so bring the selected
+  // one into view — centred where there is room either side
+  function reveal(btn) {
+    if (!strip || strip.scrollWidth <= strip.clientWidth) return;
+    // measured from rects, not offsetLeft: the strip is not a positioning
+    // context, so offsetLeft would be relative to some other ancestor
+    var sr = strip.getBoundingClientRect();
+    var br = btn.getBoundingClientRect();
+    var to = strip.scrollLeft + (br.left - sr.left) - (sr.width - br.width) / 2;
+    strip.scrollLeft = Math.max(0, Math.min(to, strip.scrollWidth - strip.clientWidth));
+  }
+
+  function select(i) {
+    var btn = buttons[i];
+    if (!btn) return;
+    build(btn);
+    buttons.forEach(function (b) {
+      b.classList.toggle('is-active', b === btn);
+    });
+    reveal(btn);
+  }
+
+  buttons.forEach(function (btn, i) {
+    btn.addEventListener('click', function () { select(i); });
+  });
+
+  if (hasNav) {
+    var current = function () {
+      var i = buttons.findIndex(function (b) {
+        return b.classList.contains('is-active');
+      });
+      return i < 0 ? 0 : i;
+    };
+
+    // wraps both ways, so the gallery is a loop rather than a dead end
+    var step = function (delta) {
+      select((current() + delta + buttons.length) % buttons.length);
+    };
+
+    prev.addEventListener('click', function () { step(-1); });
+    next.addEventListener('click', function () { step(1); });
+
+    main.append(prev, next);
+  }
+});
+
+// Captioned slideshow. Slides, captions and dots are three parallel lists
+// switched by one index. Autoplay pauses on hover/focus and stops for good
+// once the visitor takes control, so it never fights someone reading.
+document.querySelectorAll('[data-slideshow]').forEach(function (show) {
+  var slides   = Array.prototype.slice.call(show.querySelectorAll('.slide'));
+  var captions = Array.prototype.slice.call(show.querySelectorAll('.slide-cap'));
+  var dots     = Array.prototype.slice.call(show.querySelectorAll('[data-slide-dots] button'));
+  var counter  = show.querySelector('[data-slide-current]');
+  if (slides.length < 2) return;
+
+  var index = 0;
+  var timer = null;
+  var stopped = false;
+
+  var delay = parseInt(show.dataset.autoplay, 10);
+  var autoplays = delay > 0 && !still;
+
+  // Hidden slides are lazy, and a visibility:hidden image never enters the
+  // viewport as far as the lazy loader is concerned — so it would stay blank
+  // when selected. Flipping loading to eager kicks off the fetch.
+  function warm(i) {
+    var el = slides[(i + slides.length) % slides.length];
+    if (el.tagName === 'VIDEO') {
+      if (el.preload !== 'auto') el.preload = 'auto';
+    } else if (el.loading === 'lazy') {
+      el.loading = 'eager';
+    }
+  }
+
+  // a clip only plays while it is the visible slide
+  function playback() {
+    slides.forEach(function (el, i) {
+      if (el.tagName !== 'VIDEO') return;
+      if (i === index) { var p = el.play(); if (p) p.catch(function () {}); }
+      else { el.pause(); el.currentTime = 0; }
+    });
+  }
+
+  function show_(next) {
+    index = (next + slides.length) % slides.length;
+    warm(index);
+    warm(index + 1);   // the one autoplay/next will reach for
+    warm(index - 1);
+    [slides, captions, dots].forEach(function (list) {
+      list.forEach(function (el, i) {
+        el.classList.toggle('is-current', i === index);
+      });
+    });
+    if (counter) counter.textContent = String(index + 1);
+    playback();
+  }
+
+  function start() {
+    if (!autoplays || stopped || timer) return;
+    timer = setInterval(function () { show_(index + 1); }, delay);
+  }
+
+  function pause() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  // any deliberate input ends autoplay for the rest of the visit
+  function take(next) {
+    stopped = true;
+    pause();
+    show_(next);
+  }
+
+  show.querySelector('[data-slide-prev]').addEventListener('click', function () { take(index - 1); });
+  show.querySelector('[data-slide-next]').addEventListener('click', function () { take(index + 1); });
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { take(i); });
+  });
+
+  show.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  { take(index - 1); }
+    if (e.key === 'ArrowRight') { take(index + 1); }
+  });
+
+  // swipe, for touch
+  var startX = null;
+  show.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  show.addEventListener('touchend', function (e) {
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 45) take(index + (dx < 0 ? 1 : -1));
+    startX = null;
+  }, { passive: true });
+
+  warm(1);   // so the very first advance has its image ready
+
+  show.addEventListener('mouseenter', pause);
+  show.addEventListener('mouseleave', start);
+  show.addEventListener('focusin', pause);
+  show.addEventListener('focusout', start);
+
+  start();
+});
+</script>
+
+</body>
+</html>
