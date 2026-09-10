@@ -1,0 +1,53 @@
+<title>Light Mode Options</title>
+<style>
+  :root{ --page-bg:#f4f5f6; --page-fg:#3a4147; --line:#dde1e4; }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--page-bg); color:var(--page-fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    padding:2rem 1rem 3rem;
+  }
+  .wrap{max-width:960px;margin:0 auto}
+  h1{font-size:1.15rem;font-weight:600;color:#20262b;margin:0 0 .25rem}
+  p.lede{color:#6b7480;font-size:.9rem;margin:0 0 1.75rem;max-width:64ch}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .card{border:1px solid var(--line); border-radius:10px; overflow:hidden}
+  .card .preview{padding:1.4rem 1.2rem 1.6rem}
+  .card .preview .brand{font-size:.72rem;letter-spacing:.02em;margin-bottom:.9rem;font-weight:600}
+  .card .preview h2{font-size:1.05rem;margin:0 0 .35rem;font-weight:600}
+  .card .preview .role{font-size:.82rem;margin:0 0 .7rem}
+  .card .preview a{font-size:.82rem;text-decoration:none;font-weight:600}
+  .card .label{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:.55rem .9rem;background:#e9ebed;border-top:1px solid var(--line);
+    font-size:.72rem;color:#5f6a73;
+  }
+  .card .label code{color:#2b3339;font-family:ui-monospace,Menlo,Consolas,monospace}
+</style>
+<div class="wrap">
+  <h1>Light mode — four directions</h1>
+  <p class="lede">Accent shifted to a darker blue in each (the current <code style="color:#2b3339">#5BC2E7</code> sky blue is too pale for links on a light ground) so it still reads as "yours" but stays readable.</p>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+  const palettes = [
+    { name:"Clean white", bg:"#ffffff", fg:"#14181c", muted:"#5b6770", accent:"#0e79b3" },
+    { name:"Soft paper",  bg:"#f7f5f0", fg:"#1c1a17", muted:"#6b665c", accent:"#0f7a9c" },
+    { name:"Cool grey",   bg:"#eef1f4", fg:"#16202a", muted:"#5c6b78", accent:"#1c6fa8" },
+    { name:"Pale sky",    bg:"#eaf2f9", fg:"#10222f", muted:"#4c6478", accent:"#0a6fae" },
+  ];
+  const grid = document.getElementById("grid");
+  for (const p of palettes) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="preview" style="background:${p.bg};color:${p.fg}">
+        <div class="brand" style="color:${p.muted}">Francisco Pires da Silva</div>
+        <h2>Robotics Engineer</h2>
+        <p class="role" style="color:${p.muted}">Autonomous navigation &amp; marine robotics</p>
+        <a href="#" style="color:${p.accent}">View project →</a>
+      </div>
+      <div class="label"><span>${p.name}</span><code>${p.bg}</code></div>`;
+    grid.appendChild(card);
+  }
+</script>

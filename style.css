@@ -1,11 +1,14 @@
 :root {
-  --bg: #0f1418;
-  --fg: #e8e8e3;
-  --muted: #8a9296;
-  --accent: #5BC2E7;
-  --card-bg: #161c21;
-  --line: #2a3238;
+  --bg: #f7f5f0;
+  --fg: #1c1a17;
+  --muted: #6b665c;
+  --accent: #0f7a9c;
+  --card-bg: #efece4;
+  --line: #e6e1d6;
   --wide: 1100px;
+  /* fixed dark plate for logos that are light-on-dark artwork (see
+     .research-media.logo below) — stays dark regardless of the page theme */
+  --logo-plate: #12181d;
 }
 
 * { box-sizing: border-box; }
@@ -47,7 +50,7 @@ a:hover { text-decoration: underline; }
   align-items: center;
   gap: 16px;
   padding: 12px 24px;
-  background: rgba(15, 20, 24, 0.85);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -303,12 +306,14 @@ h2 + .section-intro {
 
 /* Contained wordmark on a dark plate — logos rarely survive cropping, and
    all three of these are light-on-dark artwork (the AEROSUB mark is blue and
-   white, the ATLANTIS banner carries its own navy background). */
+   white, the ATLANTIS banner carries its own navy background). Pinned to
+   --logo-plate rather than --bg so they stay legible even in light mode. */
 .research-media.logo {
   display: grid;
   place-items: center;
   padding: 20px 24px;
   min-height: 132px;
+  background: var(--logo-plate);
 }
 
 .research-media.logo img {

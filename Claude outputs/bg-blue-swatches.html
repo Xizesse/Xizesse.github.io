@@ -1,0 +1,63 @@
+<title>Blue Background Swatches</title>
+<style>
+  :root{
+    --fg:#e8e8e3; --muted:#8a9296; --accent:#5BC2E7; --line:#2a3238;
+    --page-bg:#0b0e11; --page-fg:#c7ccd1;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--page-bg); color:var(--page-fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    padding:2rem 1rem 3rem;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  h1{font-size:1.15rem;font-weight:600;color:var(--fg);margin:0 0 .25rem}
+  p.lede{color:var(--muted);font-size:.9rem;margin:0 0 1.75rem;max-width:60ch}
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:1rem;
+  }
+  .card{border:1px solid var(--line); border-radius:10px; overflow:hidden}
+  .card .preview{
+    padding:1.4rem 1.2rem 1.6rem;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  .card .preview .brand{font-size:.72rem;letter-spacing:.02em;margin-bottom:.9rem;opacity:.8}
+  .card .preview h2{font-size:1.05rem;margin:0 0 .35rem;font-weight:600}
+  .card .preview .role{font-size:.82rem;margin:0 0 .7rem;opacity:.75}
+  .card .preview a{color:var(--accent);font-size:.82rem;text-decoration:none;font-weight:600}
+  .card .label{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:.55rem .9rem;background:#151a1e;border-top:1px solid var(--line);
+    font-size:.72rem;color:var(--muted);
+  }
+  .card .label code{color:var(--page-fg);font-family:ui-monospace,Menlo,Consolas,monospace}
+</style>
+<div class="wrap">
+  <h1>Blue background — lighter steps</h1>
+  <p class="lede">Same accent (<code style="color:var(--page-fg)">#5BC2E7</code>) held constant, background shifted toward blue and stepped lighter. First one still uses light text; the last two are light enough that dark text reads better, shown that way.</p>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+  const swatches = [
+    { hex: "#141d2b", note: "navy, subtle", text: "#e8e8e3", sub: "#8a9296" },
+    { hex: "#1c2b42", note: "navy, clearer", text: "#e8e8e3", sub: "#93a3b5" },
+    { hex: "#25405e", note: "steel blue", text: "#f2f5f8", sub: "#aebfd0" },
+    { hex: "#7fa8c9", note: "light — dark text", text: "#0f1418", sub: "#2c3d4d" },
+    { hex: "#bcd7ea", note: "pale sky", text: "#10202e", sub: "#3c5568" },
+  ];
+  const grid = document.getElementById("grid");
+  for (const s of swatches) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="preview" style="background:${s.hex};color:${s.text}">
+        <div class="brand" style="color:${s.sub}">Francisco Pires da Silva</div>
+        <h2>Robotics Engineer</h2>
+        <p class="role" style="color:${s.sub}">Autonomous navigation &amp; marine robotics</p>
+        <a href="#">View project →</a>
+      </div>
+      <div class="label"><code>${s.hex}</code><span>${s.note}</span></div>`;
+    grid.appendChild(card);
+  }
+</script>
