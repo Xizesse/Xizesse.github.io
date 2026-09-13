@@ -38,6 +38,9 @@
   <symbol id="i-file" viewBox="0 0 24 24">
     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-7-7Zm0 2.5L17.5 9H13V4.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z"/>
   </symbol>
+  <symbol id="i-link" viewBox="0 0 24 24">
+    <path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.6-3.6a2.5 2.5 0 1 1 3.5 3.5l-1.8 1.8a1 1 0 1 1-1.4-1.4l1.8-1.8a.5.5 0 1 0-.7-.7l-3.6 3.6a1 1 0 0 1-1.4 0Zm-3.2 3.2 3.6-3.6a1 1 0 1 1 1.4 1.4l-3.6 3.6a2.5 2.5 0 1 1-3.5-3.5l1.8-1.8a1 1 0 1 1 1.4 1.4l-1.8 1.8a.5.5 0 1 0 .7.7Z"/>
+  </symbol>
 </svg>
 
 <nav class="nav">
@@ -45,7 +48,6 @@
   <div class="nav-links">
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
-    <a href="#research">Research</a>
     <a href="#projects">Projects</a>
     <!-- no download= : that forces a save. Opens in the browser's PDF viewer instead. -->
     <a class="nav-cv" href="assets/main.pdf" target="_blank" rel="noopener">CV</a>
@@ -94,12 +96,15 @@
 <main>
 
 <!-- ============================================================
-     CV BAND — Education on the left, Experience + Skills on the right.
-     Research and Projects run full width underneath.
+     PAGE SPLIT — the CV text (Education, Experience, Skills, Outreach)
+     sits in a sticky left column; Research and Projects, the visual
+     work, run in the right column beside it as the visitor scrolls.
      ============================================================ -->
 <div class="cv-layout">
 
 <div class="cv-col">
+
+  <p class="cv-eyebrow">Background</p>
 
   <section id="education">
     <h2>Education</h2>
@@ -166,51 +171,38 @@
           <li>30+ days of real-world field testing, deployments and demonstrations on the water</li>
         </ul>
 
-        <div class="thumbs" data-thumbs>
-          <div class="thumbs-main">
-            <video src="assets/1_reaching_site.mp4" poster="assets/1_reaching_site-poster.jpg"
-                   autoplay muted loop controls playsinline preload="metadata"
-                   aria-label="Clip of the autonomous surface vehicle navigating out to the inspection site"></video>
-          </div>
-          <p class="thumbs-caption" data-thumbs-caption><strong>Autonomous ASV navigation</strong>Developed and validated the full navigation stack.</p>
-          <div class="thumbs-strip">
-            <button type="button" class="is-active"
-                    data-type="video" data-src="assets/1_reaching_site.mp4"
-                    data-poster="assets/1_reaching_site-poster.jpg"
-                    data-label="Autonomous ASV navigation" data-caption="Developed and validated the full navigation stack."
-                    aria-label="Clip of the autonomous surface vehicle navigating out to the inspection site">
-              <img src="assets/1_reaching_site-poster.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="video" data-src="assets/3_inspection.mp4"
-                    data-poster="assets/3_inspection-poster.jpg"
-                    data-label="Inspection" data-caption="Behaviour layer for UAV coordination."
-                    aria-label="Clip of the vehicle carrying out an inspection mission on station">
-              <img src="assets/3_inspection-poster.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="video" data-src="assets/0_leaving_shore.mp4"
-                    data-poster="assets/0_leaving_shore-poster.jpg"
-                    data-label="Leaving shore" data-caption="Autonomous navigation from shore to site, making UAV inspection on sites far from shore possible."
-                    aria-label="Clip of the autonomous surface vehicle leaving the shore at the start of a mission">
-              <img src="assets/0_leaving_shore-poster.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="image" data-src="assets/lily-water.jpg"
-                    data-label="Real vehicles" data-caption="Hands-on experience developing and deploying real vehicles."
-                    aria-label="LILY, an autonomous surface vehicle, under way on open water">
-              <img src="assets/lily-water.jpg" alt="" loading="lazy">
-            </button>
-          </div>
+        <div class="research-mini-list">
+          <a class="research-mini" href="https://aerosub.eu/about/">
+            <span class="research-mini-media">
+              <img src="assets/aerosub-logo.svg" alt="AEROSUB project logo">
+            </span>
+            <span class="research-mini-body">
+              <span class="research-mini-tag">AEROSUB · Horizon Europe · 2024–Present</span>
+              <span class="research-mini-desc">Automated inspection robots for offshore wind — aerial and underwater, combining AI and digital twins.</span>
+            </span>
+          </a>
+          <a class="research-mini" href="https://talosproject.eu/">
+            <span class="research-mini-media">
+              <img src="assets/talos.png" alt="TALOS project logo">
+            </span>
+            <span class="research-mini-body">
+              <span class="research-mini-tag">TALOS · Horizon Europe · 2023–Present</span>
+              <span class="research-mini-desc">Robotics and AI living labs for photovoltaic inspection and maintenance.</span>
+            </span>
+          </a>
+          <a class="research-mini" href="https://www.atlantis-h2020.eu/">
+            <span class="research-mini-media">
+              <img src="assets/atlantis.png" alt="ATLANTIS project logo">
+            </span>
+            <span class="research-mini-body">
+              <span class="research-mini-tag">ATLANTIS · Horizon 2020 · 2020–2024</span>
+              <span class="research-mini-desc">Atlantic testing platform for robotic inspection and maintenance of offshore wind farms.</span>
+            </span>
+          </a>
         </div>
       </div>
     </article>
   </section>
-
-
-</div>
-
-<div class="cv-col">
 
   <section id="skills">
     <h2>Skills</h2>
@@ -247,156 +239,19 @@
           <li>Member of EESTEC, the European Association of Students of Electrical Engineering</li>
           <li>High-school outreach presentations introducing electrical engineering, with hands-on Arduino exercises</li>
         </ul>
-
-        <!-- Captioned slideshow. Slides and captions are separate stacks so the
-             arrows can sit over the photo; both are switched by the same index.
-             Slide 1 carries is-current in the HTML, so without JS the widget
-             still shows a photo and its caption. -->
-        <div class="thumbs" data-thumbs>
-          <div class="thumbs-main">
-            <img src="assets/outreach-10.jpg" alt="A presenter addressing the class beside the Arduino slide">
-          </div>
-          <p class="thumbs-caption" data-thumbs-caption><strong>High-School Outreach</strong>Showed electrical engineering to high-schoolers, with hands-on Arduino exercises.</p>
-          <div class="thumbs-strip">
-            <button type="button" class="is-active"
-                    data-type="image" data-src="assets/outreach-10.jpg"
-                    data-label="High-School Outreach" data-caption="Showed electrical engineering to high-schoolers, with hands-on Arduino exercises."
-                    aria-label="A presenter addressing the class beside the Arduino slide">
-              <img src="assets/outreach-10.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="image" data-src="assets/neeeil-room.jpg"
-                    data-label="NEEEIL-IT" data-caption="Logistics coordinator for the 24-hour robotics competition."
-                    aria-label="A robotic arm in the foreground of the competition room">
-              <img src="assets/neeeil-room.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="image" data-src="assets/neeeil-banner.jpg"
-                    data-label="NEEEIL-IT" data-caption="Logistics coordinator for the 24-hour robotics competition."
-                    aria-label="Two staff members on chairs hanging the NEEEIL-IT banner">
-              <img src="assets/neeeil-banner.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="image" data-src="assets/workshop-arduino.jpg"
-                    data-label="Workshops" data-caption="Presented and organised workshops for fellow students — Arduino, electronics, ROS and Notion."
-                    aria-label="Running an Arduino workshop for a full lecture hall">
-              <img src="assets/workshop-arduino.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="image" data-src="assets/outreach-04.jpg"
-                    data-label="High-School Outreach" data-caption="Showed electrical engineering to high-schoolers, with hands-on Arduino exercises."
-                    aria-label="The presenting team answering questions beside the breadboard slide">
-              <img src="assets/outreach-04.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="video" data-src="assets/robotic_arm_neeec.mp4"
-                    data-poster="assets/robotic_arm_neeec-poster.jpg"
-                    data-label="Head of Technological Department" data-caption="Leading the department's team of 20 and the projects it builds."
-                    aria-label="A robotic arm built by the technology department moving through its range">
-              <img src="assets/robotic_arm_neeec-poster.jpg" alt="" loading="lazy">
-            </button>
-            <button type="button"
-                    data-type="image" data-src="assets/electronics_workshop.jpeg"
-                    data-label="Electronics Workshop" data-caption="Teaching PWM and duty-cycle basics with Arduino at a NEEEC-FEUP x BEST Porto workshop."
-                    aria-label="Presenting a PWM duty-cycle diagram on the projector, with an Arduino kit set up on the front bench">
-              <img src="assets/electronics_workshop.jpeg" alt="" loading="lazy">
-            </button>
-          </div>
-        </div>
       </div>
     </article>
   </section>
 
-</div>
+</div><!-- /.cv-col -->
 
-</div><!-- /.cv-layout -->
-
-<!-- ============================================================
-     RESEARCH — full width, three cards across
-     ============================================================ -->
-<section id="research">
-  <h2>Research</h2>
-
-  <p class="section-intro">
-    EU-funded projects I contributed to at INESC TEC — Center for Robotics and
-    Autonomous Systems.
-  </p>
-
-  <div class="research-grid">
-
-    <!-- Swap `logo` for `photo` on .research-media to switch a card from a
-         padded, contained logo to a full-bleed cropped photograph. -->
-    <article class="research-card">
-      <a class="research-media logo" href="https://aerosub.eu/about/">
-        <img src="assets/aerosub-logo.svg" alt="AEROSUB project logo">
-      </a>
-      <div class="research-body">
-        <p class="tag">Horizon Europe · 2024 — Present</p>
-        <h3><a href="https://aerosub.eu/about/">AEROSUB</a></h3>
-        <p class="project-full">Automated Inspection Robots for Surface, Aerial and Underwater Substructures</p>
-        <p>
-          An INESC TEC-led effort to build the first fully unmanned robotic solution
-          for aerial and underwater inspection of offshore wind farms, combining AI,
-          digital twins and multi-robot collaboration.
-        </p>
-        <p class="stack">
-          <a href="https://aerosub.eu/about/">Project site</a> ·
-          <a href="https://cordis.europa.eu/project/id/101189723">CORDIS</a>
-        </p>
-      </div>
-    </article>
-
-    <article class="research-card">
-      <a class="research-media logo" href="https://talosproject.eu/">
-        <img src="assets/talos.png" alt="TALOS project logo">
-      </a>
-      <div class="research-body">
-        <p class="tag">Horizon Europe · 2023 — Present</p>
-        <h3><a href="https://talosproject.eu/">TALOS</a></h3>
-        <p class="project-full">Robotics and AI living labs for photovoltaic inspection and maintenance</p>
-        <p>
-          Robotics and AI for solar photovoltaics and agriculture, centred on
-          human–robot collaboration for inspection and maintenance.
-        </p>
-        <p class="stack">
-          <a href="https://talosproject.eu/">Project site</a> ·
-          <a href="https://cordis.europa.eu/project/id/101119744">CORDIS</a>
-        </p>
-      </div>
-    </article>
-
-    <article class="research-card">
-      <a class="research-media logo" href="https://www.atlantis-h2020.eu/">
-        <img src="assets/atlantis.png" alt="ATLANTIS project logo">
-      </a>
-      <div class="research-body">
-        <p class="tag">Horizon 2020 · 2020 — 2024</p>
-        <h3><a href="https://www.atlantis-h2020.eu/">ATLANTIS</a></h3>
-        <p class="project-full">The Atlantic Testing Platform for Maritime Robotics</p>
-        <p>
-          A pilot test infrastructure in the Atlantic off Viana do Castelo, Portugal,
-          for robotic inspection and maintenance of offshore wind farms — cutting the
-          need for the support vessels that drive up the cost of energy.
-        </p>
-        <p class="stack">
-          <a href="https://www.atlantis-h2020.eu/">Project site</a> ·
-          <a href="https://cordis.europa.eu/project/id/871571">CORDIS</a>
-        </p>
-      </div>
-    </article>
-
-  </div>
-</section>
+<div class="cv-main">
 
 <!-- ============================================================
      PROJECTS — full width, alternating rows
      ============================================================ -->
 <section id="projects">
-  <h2>Personal &amp; University Projects</h2>
-
-  <p class="section-intro">
-    Roughly in order of how much I liked working on them.
-  </p>
+  <h2>Projects I've Worked On</h2>
 
   <!-- Alternating rows: media left on odd rows, right on even.
        .showcase-media takes an <img>, a 16:9 .embed wrapper, or a .thumbs
@@ -406,50 +261,185 @@
     <div class="showcase-media plain">
       <div class="thumbs" data-thumbs>
         <div class="thumbs-main">
+          <video src="assets/1_reaching_site.mp4" poster="assets/1_reaching_site-poster.jpg"
+                 autoplay muted loop controls playsinline preload="metadata"
+                 aria-label="Clip of the autonomous surface vehicle navigating out to the inspection site"></video>
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption>Developed and validated the full navigation stack for the autonomous surface vehicle.</p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="video" data-src="assets/1_reaching_site.mp4"
+                  data-poster="assets/1_reaching_site-poster.jpg"
+                  data-label="Autonomous ASV navigation" data-caption="Developed and validated the full navigation stack."
+                  aria-label="Clip of the autonomous surface vehicle navigating out to the inspection site">
+            <img src="assets/1_reaching_site-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/3_inspection.mp4"
+                  data-poster="assets/3_inspection-poster.jpg"
+                  data-label="Inspection" data-caption="Behaviour layer for UAV coordination."
+                  aria-label="Clip of the vehicle carrying out an inspection mission on station">
+            <img src="assets/3_inspection-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/0_leaving_shore.mp4"
+                  data-poster="assets/0_leaving_shore-poster.jpg"
+                  data-label="Leaving shore" data-caption="Autonomous navigation from shore to site, making UAV inspection on sites far from shore possible."
+                  aria-label="Clip of the autonomous surface vehicle leaving the shore at the start of a mission">
+            <img src="assets/0_leaving_shore-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/lily-water.jpg"
+                  data-label="Real vehicles" data-caption="Hands-on experience developing and deploying real vehicles."
+                  aria-label="LILY, an autonomous surface vehicle, under way on open water">
+            <img src="assets/lily-water.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">INESC TEC · Project TALOS · 2023 — Present</p>
+      <h3>LILY - ASV Autonomous Navigation</h3>
+      <p>
+        Developed the ASV navigation pipeline for project TALOS, from motion
+        planning and control, decision making and UAV coordination.
+      </p>
+      <p class="stack">Motion planning · Decision making · Control system design · Field validation</p>
+      <p class="project-links">
+        <a href="https://talosproject.eu/">
+          <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>Project site
+        </a>
+      </p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <img src="assets/dockingsystem_explosion.png" alt="Exploded CAD view of the docking platform showing the retention ring and internal electronics bay">
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption>CAD design</p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="image" data-src="assets/dockingsystem_explosion.png"
+                  data-label="CAD design" data-caption="CAD design"
+                  aria-label="Exploded CAD view of the docking platform showing the retention ring and internal electronics bay">
+            <img src="assets/dockingsystem_explosion.png" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/dockingsystem_eletronics.png"
+                  data-label="Electronics Assembly" data-caption="Electronics Assembly"
+                  aria-label="Interior of the docking platform showing the retention actuators, compute board and wiring">
+            <img src="assets/dockingsystem_eletronics.png" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/dockingsystem_uav.png"
+                  data-label="UAV and Platform" data-caption="UAV and Platform"
+                  aria-label="The UAV docked and secured on the retention platform outdoors">
+            <img src="assets/dockingsystem_uav.png" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">INESC TEC · 2023</p>
+      <h3>UAV Docking and Retention System</h3>
+      <p>
+        Developed a prototype for a portable UAV docking and retention
+        system, from conceptualization, 3D modeling, electronics and
+        communications.
+      </p>
+      <p class="stack">Prototyping · CAD design · Embedded electronics</p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <img src="assets/simulated_terrain.png" alt="Gazebo scene showing photogrammetry-realistic terrain beside a floating photovoltaic platform on water">
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption>Alqueva Dam Terrain</p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="image" data-src="assets/simulated_terrain.png"
+                  data-label="Alqueva Dam Terrain" data-caption="Alqueva Dam Terrain"
+                  aria-label="Gazebo scene showing photogrammetry-realistic terrain beside a floating photovoltaic platform on water">
+            <img src="assets/simulated_terrain.png" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/simulated_waves.mp4"
+                  data-poster="assets/simulated_waves-poster.jpg"
+                  data-label="Wind, wave and buoyancy plugins" data-caption="Wind, wave and buoyancy plugins"
+                  aria-label="Simulated ASV floating on wind-and-wave-driven water in the simulation environment">
+            <img src="assets/simulated_waves-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/simulated_obstacle_detection.png"
+                  data-label="Simulated LiDAR, camera, and obstacles" data-caption="Simulated LiDAR, camera, and obstacles"
+                  aria-label="Split view of a simulated LiDAR point cloud and camera image next to the Gazebo scene with a wind turbine platform and buoy">
+            <img src="assets/simulated_obstacle_detection.png" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">INESC TEC · Project TALOS · 2023 — Present</p>
+      <h3>ASV Simulation Environment</h3>
+      <p>
+        Integrated and calibrated wave, current, wind and buoyancy plugins,
+        simulated LiDAR, camera, IMU, GPS and MAVLink teleoperation, and
+        modeled terrain and mission elements, to build a simulation
+        environment for ASV behavioral and motion planning.
+      </p>
+      <p class="stack">Simulation (Gazebo) · Sensor modelling · Physics tuning · ROS 2</p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
           <video src="assets/JAVOA_static.mp4" poster="assets/JAVOA_static-poster.jpg"
                  autoplay muted loop controls playsinline preload="metadata"
                  aria-label="Aerial footage of the surface vehicle avoiding a static obstacle during an on-water trial"></video>
         </div>
-        <p class="thumbs-caption" data-thumbs-caption><strong>Static obstacle</strong>Steering around a fixed obstacle during an on-water trial, filmed from the air.</p>
+        <p class="thumbs-caption" data-thumbs-caption>Avoiding two static obstacles</p>
         <div class="thumbs-strip">
           <button type="button" class="is-active"
                   data-type="video" data-src="assets/JAVOA_static.mp4"
                   data-poster="assets/JAVOA_static-poster.jpg"
-                  data-label="Static obstacle" data-caption="Steering around a fixed obstacle during an on-water trial, filmed from the air."
+                  data-label="Avoiding two static obstacles" data-caption="Avoiding two static obstacles"
                   aria-label="Aerial footage of the surface vehicle avoiding a static obstacle during an on-water trial">
             <img src="assets/JAVOA_static-poster.jpg" alt="" loading="lazy">
           </button>
           <button type="button"
                   data-type="video" data-src="assets/JAVOA_2dHolonom.mp4"
                   data-poster="assets/JAVOA_2dHolonom-poster.jpg"
-                  data-label="Holonomic 2D case" data-caption="The velocity-obstacle algorithm resolving a moving obstacle in simulation."
                   aria-label="Simulation clip of the velocity-obstacle algorithm avoiding a moving obstacle in the holonomic 2D case">
             <img src="assets/JAVOA_2dHolonom-poster.jpg" alt="" loading="lazy">
           </button>
           <button type="button"
                   data-type="video" data-src="assets/JAVOA_DiffDrive.mp4"
                   data-poster="assets/JAVOA_DiffDrive-poster.jpg"
-                  data-label="Differential drive" data-caption="The same algorithm under differential-drive constraints, where the vehicle cannot move sideways."
                   aria-label="Simulation clip of the avoidance algorithm running on a differential-drive vehicle">
             <img src="assets/JAVOA_DiffDrive-poster.jpg" alt="" loading="lazy">
           </button>
           <button type="button"
                   data-type="video" data-src="assets/JAVOA_multirotor.mp4"
                   data-poster="assets/JAVOA_multirotor-poster.jpg"
-                  data-label="Multirotor" data-caption="Carried across to an aerial vehicle — the heterogeneous case the algorithm was built for."
                   aria-label="Simulation clip of the avoidance algorithm running on a multirotor aerial vehicle">
             <img src="assets/JAVOA_multirotor-poster.jpg" alt="" loading="lazy">
           </button>
           <button type="button"
                   data-type="video" data-src="assets/JAVOA_giveway_overtake.mp4"
                   data-poster="assets/JAVOA_giveway_overtake-poster.jpg"
-                  data-label="Give way &amp; overtake" data-caption="Two encounter types resolved side by side — overtaking a slower vessel, and giving way to a crossing one."
                   aria-label="Side-by-side overhead clips of the vehicle overtaking one vessel and giving way to another, with the planned paths drawn">
             <img src="assets/JAVOA_giveway_overtake-poster.jpg" alt="" loading="lazy">
           </button>
           <button type="button"
                   data-type="image" data-src="assets/thesis-scenario-3.jpg"
-                  data-label="Real-world scenario" data-caption="A closer pass, with the detour opening up to starboard."
                   aria-label="Dissertation figure: a real-world scenario, the vehicle's environment representation beside the reference photograph">
             <img src="assets/thesis-scenario-3.jpg" alt="" loading="lazy">
           </button>
@@ -481,7 +471,7 @@
         <div class="thumbs-main">
           <img src="assets/rov-brush.jpg" alt="The ROV with its brush tool mounted on a carbon boom">
         </div>
-        <p class="thumbs-caption" data-thumbs-caption><strong>The ROV</strong>Equipped with cameras and a brush for sampling and cleaning.</p>
+        <p class="thumbs-caption" data-thumbs-caption>The ROV, equipped with cameras and a brush for sampling and cleaning.</p>
         <div class="thumbs-strip">
           <button type="button" class="is-active"
                   data-type="image" data-src="assets/rov-brush.jpg"
@@ -508,11 +498,54 @@
       <p class="tag">MIT Portugal Marine Robotics Summer School · 2026</p>
       <h3>ROV for Autonomous Detection of Invasive Biofouling</h3>
       <p>
-        An ROV-based approach to spotting invasive biofouling species on submerged
-        structures, built during the summer school in the Azores with a team of
-        biologists, oceanographers, navy personnel and engineers.
+        Adapted an ROV with custom software and hardware accessories for
+        detecting invasive biofouling species on submerged structures, during
+        a summer school in the Azores with a team of biologists,
+        oceanographers, navy personnel and engineers.
       </p>
       <p class="stack">ROV · Marine robotics · Underwater inspection</p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <video src="assets/bird_tracking.mp4" poster="assets/bird_tracking-poster.jpg"
+                 autoplay muted loop controls playsinline preload="metadata"
+                 aria-label="A bird tracked with a bounding box as it moves through the flight tunnel"></video>
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption></p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="video" data-src="assets/bird_tracking.mp4"
+                  data-poster="assets/bird_tracking-poster.jpg"
+                  aria-label="A bird tracked with a bounding box as it moves through the flight tunnel">
+            <img src="assets/bird_tracking-poster.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/bird_owl_segmentation.jpg"
+                  aria-label="Instance segmentation mask highlighting an owl perched on a branch inside the flight tunnel">
+            <img src="assets/bird_owl_segmentation.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/bird_tunnel_detection.jpg"
+                  aria-label="Two birds detected along the flight tunnel, each with a bounding box and confidence score">
+            <img src="assets/bird_tunnel_detection.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">Personal project · 2026 — Present</p>
+      <h3>Bird Recovery Detection</h3>
+      <p>
+        Developing a computer vision pipeline for UTAD's Wildlife
+        Rehabilitation Centre's bird flight tunnels, turning camera footage
+        into flight behaviour analysis and recovery detection. Currently
+        being deployed on site.
+      </p>
+      <p class="stack">Object detection · Object tracking · YOLO · Roboflow</p>
     </div>
   </article>
 
@@ -524,7 +557,7 @@
                  autoplay muted loop controls playsinline preload="metadata"
                  aria-label="The quadruped following the contour of an obstacle it has detected"></video>
         </div>
-        <p class="thumbs-caption" data-thumbs-caption><strong>Contour following</strong>Detecting an obstacle with the time-of-flight sensor and going around it.</p>
+        <p class="thumbs-caption" data-thumbs-caption>Detecting an obstacle with the time-of-flight sensor and going around it.</p>
         <div class="thumbs-strip">
           <button type="button" class="is-active"
                   data-type="video" data-src="assets/Spider_obstacle_countour.mp4"
@@ -557,6 +590,71 @@
         time-of-flight sensor for obstacle detection and contour following.
       </p>
       <p class="stack">Mobile robotics · Motion planning · Raspberry Pi Pico · C · IMU · ToF</p>
+    </div>
+  </article>
+
+  <article class="showcase" id="neeec-project">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <img src="assets/electronics_workshop.jpeg" alt="Presenting a PWM duty-cycle diagram on the projector, with an Arduino kit set up on the front bench">
+        </div>
+        <p class="thumbs-caption" data-thumbs-caption></p>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="image" data-src="assets/electronics_workshop.jpeg"
+                  aria-label="Presenting a PWM duty-cycle diagram on the projector, with an Arduino kit set up on the front bench">
+            <img src="assets/electronics_workshop.jpeg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/outreach-10.jpg"
+                  data-label="High-School Outreach" data-caption="Showed electrical engineering to high-schoolers, with hands-on Arduino exercises."
+                  aria-label="A presenter addressing the class beside the Arduino slide">
+            <img src="assets/outreach-10.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/neeeil-room.jpg"
+                  data-label="NEEEIL-IT" data-caption="Logistics coordinator for the 24-hour robotics competition."
+                  aria-label="A robotic arm in the foreground of the competition room">
+            <img src="assets/neeeil-room.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/neeeil-banner.jpg"
+                  data-label="NEEEIL-IT" data-caption="Getting the venue ready for the competition."
+                  aria-label="Two staff members on chairs hanging the NEEEIL-IT banner">
+            <img src="assets/neeeil-banner.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/workshop-arduino.jpg"
+                  data-label="Workshops" data-caption="Presented and organised workshops for fellow students — Arduino, electronics, ROS and Notion."
+                  aria-label="Running an Arduino workshop for a full lecture hall">
+            <img src="assets/workshop-arduino.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/outreach-04.jpg"
+                  data-label="High-School Outreach" data-caption="Fielding questions from a class of high-schoolers after an Arduino demo."
+                  aria-label="The presenting team answering questions beside the breadboard slide">
+            <img src="assets/outreach-04.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="video" data-src="assets/robotic_arm_neeec.mp4"
+                  data-poster="assets/robotic_arm_neeec-poster.jpg"
+                  data-label="Technology Department" data-caption="Leading the department's team of 20 and the projects it builds."
+                  aria-label="A robotic arm built by the technology department moving through its range">
+            <img src="assets/robotic_arm_neeec-poster.jpg" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">Sept 2020 — Aug 2025</p>
+      <h3>NEEEC-FEUP — Student Branch</h3>
+      <p>
+        Member from 2020 to 2025 and board member in 2023/2024 — head of the
+        technology department, running technical workshops, high-school
+        outreach, and logistics for the NEEEIL-IT robotics competition.
+      </p>
+      <p class="stack">Team leadership · Event logistics · Workshop design · Public speaking</p>
     </div>
   </article>
 
@@ -629,7 +727,7 @@
       </div>
     </div>
     <div class="showcase-body">
-      <p class="tag">FEUP · 2023 · Mostra U.Porto</p>
+      <p class="tag">NEEEC · 2023 · Mostra U.Porto</p>
       <h3>PID Ball Balancing Robot</h3>
       <p>
         A beam that keeps a ball balanced using a servo and a ToF distance sensor.
@@ -726,6 +824,9 @@
 
 </section>
 
+</div><!-- /.cv-main -->
+
+</div><!-- /.cv-layout -->
 
 </main>
 
@@ -805,9 +906,7 @@ document.querySelectorAll('[data-thumbs]').forEach(function (widget) {
 
     // strips that carry a caption block get it rewritten alongside the image
     if (caption) {
-      var strong = document.createElement('strong');
-      strong.textContent = btn.dataset.label || '';
-      caption.replaceChildren(strong, document.createTextNode(btn.dataset.caption || ''));
+      caption.textContent = btn.dataset.caption || '';
     }
   }
 
@@ -873,6 +972,7 @@ document.querySelectorAll('[data-slideshow]').forEach(function (show) {
   var timer = null;
   var stopped = false;
 
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var delay = parseInt(show.dataset.autoplay, 10);
   var autoplays = delay > 0 && !still;
 
@@ -949,6 +1049,7 @@ document.querySelectorAll('[data-slideshow]').forEach(function (show) {
     startX = null;
   }, { passive: true });
 
+  show_(0);  // sets up playback/counter/warming for the slide already on screen
   warm(1);   // so the very first advance has its image ready
 
   show.addEventListener('mouseenter', pause);

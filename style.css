@@ -196,16 +196,45 @@ h2 {
   margin: 0 0 32px;
 }
 
-/* ---------- CV band: Education + Skills | Experience ---------- */
+/* ---------- page split: CV text sticky on the left, visual work on the right ---------- */
 
 .cv-layout {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
   gap: 56px;
   align-items: start;
 }
 
-/* sections inside the band shouldn't inherit the 72px vertical rhythm */
+/* the sidebar tracks the scroll while .cv-main (Research + Projects, much
+   taller) scrolls past beside it. Sticky only ever holds within its own
+   parent (.cv-layout), so it releases naturally once .cv-main runs out —
+   no max-height/overflow-y juggling needed. The right border + a small
+   eyebrow label are what make "text here, projects there" legible at a
+   glance rather than reading as a vague third column. */
+.cv-col {
+  position: sticky;
+  top: 88px;
+  padding-right: 32px;
+  border-right: 1px solid var(--line);
+}
+
+.cv-eyebrow,
+.cv-main-eyebrow {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 16px;
+}
+
+.cv-main-eyebrow { margin-bottom: 14px; }
+
+/* the eyebrow already introduces this section, so it doesn't also need the
+   standard 72px section top-margin stacked underneath it */
+.cv-main > section:first-child { margin-top: 0; }
+
+/* sections inside the sidebar shouldn't inherit the 72px vertical rhythm */
 .cv-col section { margin: 0 0 48px; }
 .cv-col section:last-child { margin-bottom: 0; }
 
@@ -275,84 +304,71 @@ h2 + .section-intro {
   border-bottom: 1px solid var(--line);
 }
 
-/* ---------- research: logo/photo cards, full width ---------- */
+/* ---------- research: small horizontal cards, inside the sidebar ---------- */
+/* Compact EU-project cards nested under the INESC TEC entry — a logo plate
+   plus a couple lines of text, stacked in the narrow sidebar column rather
+   than the old full-width three-across grid. */
 
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
-}
-
-.research-card {
-  background: var(--card-bg);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
+.research-mini-list {
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s, transform 0.2s;
+  gap: 10px;
+  margin: 18px 0 0;
 }
 
-.research-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
+.research-mini {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.2s;
 }
 
-.research-media {
-  display: block;
-  border-bottom: 1px solid var(--line);
-  background: var(--bg);
-}
+.research-mini:hover { border-color: var(--accent); }
 
-/* Contained wordmark on a dark plate — logos rarely survive cropping, and
-   all three of these are light-on-dark artwork (the AEROSUB mark is blue and
-   white, the ATLANTIS banner carries its own navy background). Pinned to
-   --logo-plate rather than --bg so they stay legible even in light mode. */
-.research-media.logo {
+/* same reasoning as the old .research-media.logo: these three logos are
+   light-on-dark artwork, so a fixed dark plate keeps them legible in light
+   mode too. */
+.research-mini-media {
   display: grid;
   place-items: center;
-  padding: 20px 24px;
-  min-height: 132px;
+  align-self: stretch;
+  padding: 8px;
   background: var(--logo-plate);
 }
 
-.research-media.logo img {
-  max-height: 84px;
+.research-mini-media img {
+  max-height: 30px;
   max-width: 100%;
-  width: auto;
   object-fit: contain;
 }
 
-/* full-bleed project photograph */
-.research-media.photo img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-}
-
-.research-body {
-  padding: 18px 20px 20px;
+.research-mini-body {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  padding: 10px 14px 10px 0;
+  min-width: 0;
 }
 
-.research-body h3 { font-size: 1.15rem; margin: 0 0 6px; }
-.research-body h3 a { color: var(--fg); }
-.research-body h3 a:hover { color: var(--accent); text-decoration: none; }
-.research-body p { margin: 0 0 12px; font-size: 0.93rem; }
+.research-mini-tag {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
 
-/* the project's full expanded name, under the acronym */
-.project-full {
+.research-mini-desc {
   color: var(--fg);
-  font-size: 0.88rem !important;
-  font-style: italic;
-  opacity: 0.75;
-  margin-bottom: 10px !important;
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
-
-/* push the link row to the bottom so cards of differing text length align */
-.research-body .stack { margin-top: auto !important; padding-top: 4px; }
 
 /* ---------- projects: alternating showcase rows ---------- */
 
@@ -361,15 +377,18 @@ h2 + .section-intro {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   gap: 36px;
   align-items: center;
-  margin-bottom: 64px;
+  margin-bottom: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+/* the first project has nothing above it to separate from */
+.showcase:first-of-type {
+  padding-top: 0;
+  border-top: 0;
 }
 
 .showcase:last-of-type { margin-bottom: 0; }
-
-/* flip every second row so the page zig-zags (nth-of-type: the <h2> is not an
-   <article>, so counting starts at the first project) */
-.showcase:nth-of-type(even) .showcase-media { grid-column: 2; grid-row: 1; }
-.showcase:nth-of-type(even) .showcase-body  { grid-column: 1; grid-row: 1; }
 
 .showcase-media {
   border: 1px solid var(--line);
@@ -865,8 +884,20 @@ video.slide {
     gap: 0;
   }
 
+  /* stacked full-width, so the sidebar shouldn't stay pinned over the
+     Research/Projects column beneath it, and the divider that separates it
+     from that column no longer means anything once they're not side by side */
+  .cv-col {
+    position: static;
+    padding-right: 0;
+    border-right: 0;
+  }
+
   .cv-col section,
   .cv-col section:last-child { margin-bottom: 48px; }
+
+  .cv-eyebrow,
+  .cv-main-eyebrow { margin-bottom: 12px; }
 
   .entry,
   .skills {
@@ -874,15 +905,13 @@ video.slide {
     gap: 14px;
   }
 
-  /* stack showcase rows, media always first — the zig-zag has no meaning
-     in a single column */
+  /* stack showcase rows, media above text */
   .showcase {
     grid-template-columns: 1fr;
     gap: 18px;
-    margin-bottom: 48px;
+    margin-bottom: 20px;
+    padding-top: 20px;
   }
-  .showcase:nth-of-type(even) .showcase-media { grid-column: 1; grid-row: 1; }
-  .showcase:nth-of-type(even) .showcase-body  { grid-column: 1; grid-row: 2; }
 
   section { margin: 56px 0; }
 
