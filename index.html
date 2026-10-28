@@ -16,7 +16,7 @@
 
 <!-- ?v=N busts browser caches: bump the number whenever style.css changes,
      otherwise returning visitors keep rendering the page with an old stylesheet -->
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -403,6 +403,54 @@
       <p class="project-links">
         <a href="https://talosproject.eu/">
           <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>Project site
+        </a>
+      </p>
+    </div>
+  </article>
+
+  <article class="showcase">
+    <div class="showcase-media plain">
+      <div class="thumbs" data-thumbs>
+        <div class="thumbs-main">
+          <img src="assets/piobc-hardware.jpg"
+               alt="Raspberry Pi wired to a breadboard and a 16x2 LCD reading OK RTL, 12.6V, v1.03">
+        </div>
+        <div class="thumbs-strip">
+          <button type="button" class="is-active"
+                  data-type="image" data-src="assets/piobc-hardware.jpg"
+                  aria-label="Raspberry Pi wired to a breadboard and a 16x2 LCD reading OK RTL, 12.6V, v1.03">
+            <img src="assets/piobc-hardware.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/piobc-sitl-map.jpg"
+                  aria-label="Satellite map of the simulated ArduPilot boat next to its home marker">
+            <img src="assets/piobc-sitl-map.jpg" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/piobc-services.png"
+                  aria-label="Terminal showing the monitor and LCD systemd services running, with link and mode changes in their logs">
+            <img src="assets/piobc-services.png" alt="" loading="lazy">
+          </button>
+          <button type="button"
+                  data-type="image" data-src="assets/piobc-failsafe-tests.png"
+                  aria-label="Terminal showing three pytest failsafe tests passing">
+            <img src="assets/piobc-failsafe-tests.png" alt="" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-body">
+      <p class="tag">Personal · 2026</p>
+      <h3>Raspberry Pi Onboard Computer for an ASV (mini prototype)</h3>
+      <p>
+        MAVLink monitor, supervised Linux services, automated fault-injection tests
+        and a simple release process, running on a Raspberry Pi with a simulated
+        ArduPilot boat.
+      </p>
+      <p class="stack">MAVLink · systemd · pytest · Release process</p>
+      <p class="project-links">
+        <a href="https://github.com/Xizesse/rasp_pi_onboard_computer">
+          <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>Source on GitHub
         </a>
       </p>
     </div>
